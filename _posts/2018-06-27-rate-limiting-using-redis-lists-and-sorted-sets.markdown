@@ -36,7 +36,7 @@ redisClient.eval(lua, 1, 'products', function(err, replies) {
 
 {% endhighlight %}
 
-We have used Lua script to execute redis commands with the help of **redis.call()** function. **eval()** is a function provided by Redis to execute the complete Lua script. 2nd and 3rd arguments of eval function are the number of redis keys and the actual key names. We are storing the count of api hits in **products** key. The idea is to create the key with auto-expity of 60 seconds and increment the counter every time the API is accessed. Also note that this code is thread safe and atomic in nature. Redis won’t execute this script from another parallel client until it finishes execution from the current client.
+We have used Lua script to execute redis commands with the help of **redis.call()** function. **eval()** is a function provided by Redis to execute the complete Lua script. 2nd and 3rd arguments of eval function are the number of redis keys and the actual key names. We are storing the count of api hits in **products** key. The idea is to create the key with auto-expiry of 60 seconds and increment the counter every time the API is accessed. Also note that this code is thread safe and atomic in nature. Redis won’t execute this script from another parallel client until it finishes execution from the current client.
 
 But do you see a drawback in this approach? This code works only on a calendar minute and not on a rolling window. Which means if the server gets 5 hits at 10:59 an attacker can do 5 more hits at 11:01 which means 10 hits in just 2 seconds. Clearly we need a mechanism to put rate limits on a rolling 1 minute window. We will use Redis List data structure to implement this feature.
 

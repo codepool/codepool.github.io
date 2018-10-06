@@ -6,6 +6,7 @@ categories: jekyll update
 comments: true
 ---
 Most of the software applications today are powered by relational databases as they provide an easy way for storing structured data that fit well into tables. But as the data beings to grow, a relational databases fail to provide scale due to their rigidity as they store data in a very organized manner with predefined columns. Joins on the tables result in slow responses as table sizes become large. NoSQL databases were created to store unstructured data and query them efficiently. 
+<br/>
 Neo4j is a graph NoSQL database which is best suited for highly interconnected data. Since a graph database works by storing the relationships along with the data, it is useful for building applications like fraud detection or recommendation engines which require not just knowing about one entity but also how the entity is connected to other entities.
 
 ### Building a graph for Medium using Neo4j

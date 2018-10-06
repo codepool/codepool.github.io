@@ -5,11 +5,11 @@ date:   2018-10-02 17:57:22 +0530
 categories: jekyll update
 comments: true
 ---
-For most of the applications we choose relational databases as they provide an easy way for storing structured data for our application. But as the data beings to grow, a relational database fails to provide scale due to their rigidity as they store data in a very organized manner with predefined columns. Joins on the tables result in slow responses as table sizes become large. NoSQL databases were created to store unstructured data and query them efficiently. Neo4j is a graph NoSQL database which is best suited for highly interconnected data. Since a graph database works by storing the relationships along with the data, it is useful for building applications like fraud detection or recommendation engines which require not just knowing about an entity but also how the entity is connected to other entities.
+Most of the software applications today are powered by relational databases as they provide an easy way for storing structured data that fit well into tables. But as the data beings to grow, a relational databases fail to provide scale due to their rigidity as they store data in a very organized manner with predefined columns. Joins on the tables result in slow responses as table sizes become large. NoSQL databases were created to store unstructured data and query them efficiently. Neo4j is a graph NoSQL database which is best suited for highly interconnected data. Since a graph database works by storing the relationships along with the data, it is useful for building applications like fraud detection or recommendation engines which require not just knowing about one entity but also how the entity is connected to other entities.
 
 ### Building a graph for Medium using Neo4j
 
-Let's understand the power of a graph database by building a real world application like the popular content platform - Medium. Although Medium is full of many features we'll try to build only the following basic functionalities. A Medium user can do the following :
+Let's understand the power of a graph database by building a real world application like the popular content platform - Medium. Although Medium supports many features, we'll try to build only the core functionalities just to understand the use of Neo4j. A Medium user can perform the following actions :
 
 * User can follow a topic
 * User can follow another user
@@ -19,7 +19,7 @@ Let's understand the power of a graph database by building a real world applicat
 
 ### Creating Nodes and Relationships
 
-In graph world we represent the entities or the nouns like User, Story, Topic, Tag as **nodes** while the verbs like PUBLISHED, FOLLOWED, RESPONDED, CLAPPED, TAGGED_WITH etc represent **relationship** between the nodes for eg User **PUBLISHED** Story shows that a relationship PUBLISHED exists between nodes User and Story. In Neo4j both nodes and relationships can have properties of their own.
+In graph world we represent the nouns like User, Story, Topic, Tag as **nodes** while the verbs like PUBLISHED, FOLLOWED, RESPONDED, CLAPPED, TAGGED_WITH etc represent **relationship** between the nodes for eg User **PUBLISHED** Story shows that a relationship PUBLISHED exists between nodes User and Story. Both nodes and relationships can store properties of their own.
 Let's create User, Topic and Tag nodes for our application.
 
 {% highlight javascript linenos %}
@@ -39,7 +39,7 @@ Promise.all([
 
 {% endhighlight %}
 
-Note that we have just created the nodes and not the relationships. Now, let's create relationships bewteen these nodes
+So we have created two users with properties - name, email, username. **:User**, **:Topic**, **:Tag** are actually labels given to the 3 nodes. Note that we have only created the nodes and not the relationships. Let's create relationships bewteen these nodes
 
 {% highlight javascript linenos %}
 
@@ -61,7 +61,7 @@ session.run(cypher)
 
 {% endhighlight %}
 
-We have created relationships and few more nodes on the fly. That's the beauty of Neo4j - we can add nodes and relationships dynamically to the existing graph. We can even modify or add properties to nodes and relationships. Our graph will now look like the following which is very easy to visualize how the entire data is connected. 
+We have created relationships and few more nodes. A node is written inside parentheses () and relationships in square brackets []. In Neo4j we can add nodes and relationships dynamically to the existing graph. We can even modify or add properties of nodes and relationships. Our graph will now look like the following which is very easy to visualize how the entire data is connected. 
 
 
 ![image](/assets/img/neo4j.png)
@@ -70,7 +70,7 @@ Circles represent the nodes and arrows represent the relationships. Once you hav
 
 ### Querying the graph with Cypher
 
-Now that we have our graph ready, querying it is fairly easy using Cypher. When you visit a user's Medium profile, it shows you the stories on which the user clapped or responded. Let's query this data for our user **Dave**
+Now that we have our graph ready, querying it is fairly easy using Cypher - Neo4j's query language. When you visit a user's Medium profile, it shows you the stories on which the user clapped or responded. Let's query this data for our user **Dave**
 
 {% highlight javascript linenos %}
 
@@ -82,7 +82,7 @@ session.run(cypher)
 
 {% endhighlight %}
 
-Let's get all the stories published by Dave along with the number of claps and responses for each story.
+Now, let's get all the stories published by Dave along with the number of claps and responses for each story.
 
 {% highlight javascript linenos %}
 
@@ -94,14 +94,14 @@ session.run(cypher)
 
 {% endhighlight %}
 
-Piece of cake, isn't it? No complex joins or confusing GROUP BY clauses. Let's look at more complex queries.
+Piece of cake, isn't it? No complex joins or confusing GROUP BY clauses. Let's look at a more complex query.
 
 ### Recommending stories to users
 
-One of the most important features of content platforms like Medium is **content discovery** i.e suggesting new content the user may be interested in which otherwise may left undiscovered. Medium shows relevant stories to a user out of the thousands stories that are published each day based on some ranking algorithm. For eg it can give a higher score to a story if it's clapped or responded by your follower/followee, hence it may appear higher on your homepage.
+One of the most important features of content platforms like Medium is **content discovery** - suggesting new content that the user may be interested in which otherwise may left undiscovered. Medium shows relevant stories to a user out of the thousands stories that are published each day based on some ranking algorithm. For eg it can give a higher score to a story if it's clapped or responded by your follower/followee, hence it may appear higher on your homepage.
 
 Let's implement a hypothetical complex scoring criteria which might help in getting the most relevant stories.
-Let's say Medium want to show our user **Dave**, stories published by other users whom Dave does not follow but had responded or clapped on their stories in the past and the stories carry tags which Dave's one or more stories also carry.
+Let's say Medium wants to show our user **Dave**, stories published by other users whom Dave does not follow but had responded or clapped on their stories in the past and the stories carry tags which Dave's one or more stories also carry.
 
 Let's break this criteria into pieces :
 

@@ -186,5 +186,9 @@ Since any node can fail in production, we must store a copy of the data to other
 Consistent hashing is an excellent way of retrieving the data when we want to build a fault tolerant scalable distributed system for data storage. Many applications like Apache Cassandra, Couchbase etc use consistent hashing at their core for this purpose.
 
 
+<br><br>
+{% include disqus.html %}
+
+
 
 

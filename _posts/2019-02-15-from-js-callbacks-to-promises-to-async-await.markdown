@@ -156,3 +156,6 @@ const result = await myFunctionAsync();
 
 Some of the functions in node **fs** module like **readFile()** accept callback as argument and can be converted to **Promise** using above technique.
 Async/await let developers write code in a synchronous manner, while keeping the actual execution still asynchronous. It allows debugging the code and include exception handling more easily.
+
+<br><br>
+{% include disqus.html %}

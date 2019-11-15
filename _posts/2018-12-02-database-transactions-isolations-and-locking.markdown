@@ -94,3 +94,6 @@ Repeatable Read and Read Committed have almost same behaviour except repeatable 
 
 
 Mysql isolations should be used carefully since they might downgrade performance of your application. The default isolation level in Mysql works fine in most of the cases.
+
+<br><br>
+{% include disqus.html %}

@@ -4,6 +4,7 @@ title:  "From JS Callbacks to Promises to Async/Await"
 date:   2019-02-15 18:31:12 +0530
 categories: jekyll update
 comments: true
+description: "Learn how javascript has evolved from callbacks to promises and now to async/await"
 ---
 
 In the recent years, Javascript as a language has evolved a lot making the development much easier than before. New versions of EcmaScript (ES) are being released almost every year bringing in more and more improvements to the language.

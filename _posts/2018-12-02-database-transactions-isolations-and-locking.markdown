@@ -4,6 +4,7 @@ title:  "Database transactions, isolations & locking"
 date:   2018-12-02 13:02:24 +0530
 categories: jekyll update
 comments: true
+description: "Learn how to use MySQL transactions in your queries with different isolation levels"
 ---
 We all have encountered situations where we want a bunch of queries to be executed together or none at all. Or we might want to handle situations where the queries can be executed by multiple concurrent connections. Database transactions and isolation levels solve these kinds of problems. While this topic is in context of Mysql InnoDB engine but the concepts work on other RDBMS databases in a similar way.
 <br/>

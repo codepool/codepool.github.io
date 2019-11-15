@@ -4,6 +4,7 @@ title:  "Magic Of Consistent Hashing"
 date:   2019-11-02 14:05:18 +0530
 categories: jekyll update
 comments: true
+description: "Learn how Consistent Hashing helps to manage a DHT whose nodes can change frequently"
 ---
 
 ### What is hashing?

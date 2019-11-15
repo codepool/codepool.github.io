@@ -1,4 +1,7 @@
 <head>
+  {%- if jekyll.environment == 'production' -%}
+    {% include ga.html %}
+  {%- endif -%}   
   <meta name="google-site-verification" content="nn4HbvqD6fMMp_Q0_7P8Lp5b8wEpgeHhnGfBhePbItE" />		
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,7 +9,4 @@
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   {%- feed_meta -%}
-  {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include google-analytics.html -%}
-  {%- endif -%}
 </head>

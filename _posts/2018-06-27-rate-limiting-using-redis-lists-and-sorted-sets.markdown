@@ -4,6 +4,7 @@ title:  "Rate Limiting using Redis Lists and Sorted Sets"
 date:   2018-06-27 17:57:22 +0530
 categories: jekyll update
 comments: true
+description: "Learn how to use Redis to build a custom rate limiter for your application"
 ---
 Rate limiting is the process where you restrict your users to access an API or service to prevent too many malicious requests from bringing down your servers. While the basic rate limiting can be easily configured on load balancers like Nginx, you might want to consider implementing your custom solution for a more specific business use case. Following are some of the use cases that need rate limiting :
 

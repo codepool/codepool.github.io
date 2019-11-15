@@ -4,6 +4,7 @@ title:  "Building a Real World app with Neo4j"
 date:   2018-10-02 17:57:22 +0530
 categories: jekyll update
 comments: true
+description: "Learn how to use Neo4j graph database to build a content platform like Medium"
 ---
 Most of the software applications today are powered by relational databases as they provide an easy way for storing structured data that fit well into tables. But as the data beings to grow, a relational databases fail to provide scale due to their rigidity as they store data in a very organized manner with predefined columns. Joins on the tables result in slow responses as table sizes become large. NoSQL databases were created to store unstructured data and query them efficiently. 
 <br/>

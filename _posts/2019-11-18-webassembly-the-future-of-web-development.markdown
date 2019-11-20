@@ -9,7 +9,7 @@ description: "Learn how WebAssembly is going to shape the future of Web developm
 
 ## What is WebAssembly?
 
-WebAssembly (wasm) is a new binary instruction format that promises near-native performance for web applications. Simply put, one can develop code in high level languages which can then be compiled to WebAssembly module and can be directly executed by modern browsers. I like a bytecode that can run on web browsers.
+WebAssembly (wasm) is a new binary instruction format that promises near-native performance for web applications. Simply put, one can develop code in high level languages which can then be compiled to WebAssembly module and can be directly executed by modern browsers. It's like a bytecode that can run on web browsers.
 
 For many years, the only language available in the market for programming web applications was JavaScript. No other language could run inside the browser. But Javascript has many drawbacks for eg it’s slow and has type safety issues. Javascript was infact never designed to be used for heavy computation applications. To overcome some of the JS drawbacks, many developers started building transpilers to convert other languages (like CoffeeScript, TypeScript etc) to JavaScript. Still the final code running was still JavaScript. WebAssembly was created to sort out JS limitations and it is proving to be a revolutionary step towards the future of web development.
 

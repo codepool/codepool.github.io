@@ -157,6 +157,9 @@ Right now you might be thinking why would someone want to ditch a language as si
 
 The heavy performance gains WebAssembly provides in the code execution could one day see the heaviest of desktop software running inside the web browser. WebAssembly might literally make the native desktop softwares dead in coming years.
 
+<br><br>
+{% include disqus.html %}
+
 
 
 

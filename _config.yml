@@ -16,7 +16,7 @@
 title: codepool
 email: bits.sahil@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  codepool is a software engineering blog that allows developers learn about latest software technologies, frameworks & design principles to solve real world problems.
+  codepool is a software engineering blog that helps developers explore the latest technologies, frameworks, and design principles to build real-world solutions.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ""
